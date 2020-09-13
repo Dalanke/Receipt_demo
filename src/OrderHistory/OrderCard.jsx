@@ -8,7 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   title: {
     textAlign: "left",
-    fontSize: "18px"
+    fontSize: "16px",
+    fontWeight: "bold"
   },
   subheader: {
     textAlign: "left",
@@ -55,20 +56,20 @@ export default function OrderCard(props) {
     <Card variant="outlined" style={{ minWidth: '300px', margin: '10px' }}>
       <CardHeader
         title={order.date.toDateString().slice(4)}
-        subheader={`${order.items.length} items: $${subtotal.toFixed(2)}`}
+        subheader={`${order.items.length} items: $${(subtotal * 1.095).toFixed(2)}`}
         action={
           <IconButton onClick={detailButtonClick}>
             <MoreHorizIcon />
           </IconButton>
         }
-        style={{ backgroundColor: "#cccccc", padding: "10px" }}
+        style={{ backgroundColor: "#dedede", padding: "10px" }}
         classes={{ title: classes.title, subheader: classes.subheader }}
       />
 
       <CardContent>
-        <div style={{ display: "flex", float: "left", alignItems: "center", padding:"6px"}}>
+        <div style={{ display: "flex", float: "left", alignItems: "center", padding: "6px" }}>
           {itemDisplay}
-          <div style={{ display:"inline", fontSize:"8px", padding:"10px"}}>{order.items.length > 3 ? `+ ${order.items.length - 3} items` : null}</div>
+          <div style={{ display: "inline", fontSize: "8px", padding: "10px" }}>{order.items.length > 3 ? `+ ${order.items.length - 3} items` : null}</div>
         </div>
       </CardContent>
     </Card>
