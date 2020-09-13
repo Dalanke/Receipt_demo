@@ -162,4 +162,35 @@ function getAllOrders() {
   return orders;
 }
 
-export { getAllOrders }
+function getOrdersByDateFilter(filter) {
+  // if not a number -> word filter, e.g. last 30 days
+  if (isNaN(filter)) {
+    switch (filter) {
+      case 'All':
+        return orders;
+      
+      case 'Last week':
+        return orders.filter((value) => {return value.date - new Date().setDate(new Date().getDay() - 7) > 0});
+    
+      case 'Last 30 days':
+        return orders.filter((value) => {return value.date - new Date().setDate(new Date().getDay() - 30) > 0});
+
+      case 'Past 3 months':
+        return orders.filter((value) => {return value.date - new Date().setMonth(new Date().getMonth() - 3) > 0});
+
+      default:
+        return orders;
+    }
+  } else {
+    // if is number -> year filter
+    return orders.filter((value) => {return value.date.getFullYear()=== filter });
+  }
+}
+
+function getOrdersByItemSearch(item) {
+  return orders.filter((value) => {
+    return value.items.find((item) => item.name.includes(item)) !== null ? true : false;
+  });
+}
+
+export { getAllOrders, getOrdersByDateFilter, getOrdersByItemSearch }

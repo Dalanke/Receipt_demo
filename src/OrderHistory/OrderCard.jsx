@@ -1,11 +1,25 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card, CardHeader, CardContent } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  title: {
+    textAlign: "left",
+    fontSize: "18px"
+  },
+  subheader: {
+    textAlign: "left",
+    fontSize: "12px"
+  },
+});
 
 export default function OrderCard(props) {
   const order = props.order;
   const history = useHistory();
+  const classes = useStyles();
 
   // calculate subtotal
   let subtotal = 0;
@@ -18,13 +32,13 @@ export default function OrderCard(props) {
   if (order.items.length <= 3) {
     itemDisplay = order.items.map((item, index) => {
       return (
-        <img style={{width:'50px', height:'50px'}} key={index} src={item.img} alt="" />
+        <img style={{ width: '50px', height: '50px' }} key={index} src={item.img} alt="" />
       );
     });
   } else {
-    itemDisplay = order.items.slice(0,3).map((item, index) => {
+    itemDisplay = order.items.slice(0, 3).map((item, index) => {
       return (
-        <img style={{width:'50px', height:'50px'}} key={index} src={item.img} alt="" />
+        <img style={{ width: '50px', height: '50px' }} key={index} src={item.img} alt="" />
       );
     });
   }
@@ -38,18 +52,23 @@ export default function OrderCard(props) {
   }
 
   return (
-    <Card variant="outlined" style={{minWidth:'300px', margin:'10px'}}>
+    <Card variant="outlined" style={{ minWidth: '300px', margin: '10px' }}>
       <CardHeader
         title={order.date.toDateString().slice(4)}
-        subheader={`${order.items.length} items: ${subtotal.toFixed(2)}`}
+        subheader={`${order.items.length} items: $${subtotal.toFixed(2)}`}
         action={
-          <Button onClick={detailButtonClick}>detail</Button>
+          <IconButton onClick={detailButtonClick}>
+            <MoreHorizIcon />
+          </IconButton>
         }
+        style={{ backgroundColor: "#cccccc", padding: "10px" }}
+        classes={{ title: classes.title, subheader: classes.subheader }}
       />
 
       <CardContent>
-        <div style={{ display: "inline" , float: "left"}}>
+        <div style={{ display: "flex", float: "left", alignItems: "center", padding:"6px"}}>
           {itemDisplay}
+          <div style={{ display:"inline", fontSize:"8px", padding:"10px"}}>{order.items.length > 3 ? `+ ${order.items.length - 3} items` : null}</div>
         </div>
       </CardContent>
     </Card>

@@ -6,14 +6,14 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import SearchBar from './SearchBar.jsx';
 import OrderCard from './OrderCard.jsx';
-import { getAllOrders } from './data.js';
+import { getAllOrders, getOrdersByDateFilter } from './data.js';
 
 class OrderHistory extends React.Component {
   constructor() {
     super();
     this.state = {
       orders: [],
-      dateFilter: 'Last 30 days',
+      dateFilter: 'All',
       modalOpen: false,
     }
   }
@@ -25,6 +25,7 @@ class OrderHistory extends React.Component {
 
   onDateSelect = (event) => {
     this.setState({ dateFilter: event.target.value });
+    this.setState({ orders: getOrdersByDateFilter(event.target.value) });
   }
 
   render() {
@@ -38,7 +39,7 @@ class OrderHistory extends React.Component {
     return (
       <div>
         <SearchBar />
-        <div style={{ display: "inline" }}>
+        <div style={{ margin: "auto", marginTop: "100px", width: "300px" }}>
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -70,9 +71,14 @@ class OrderHistory extends React.Component {
             </AccordionDetails>
           </Accordion>
         </div>
+        <div style={{padding:"10px", fontSize: "14px"}}>
+          <div style={{display:"inline", float:"left"}}>{`${this.state.orders.length} Result(s)`}</div>
+          <div style={{display:"inline", float: "right"}}>{this.state.dateFilter}</div>
+          <div style={{clear:"both"}}></div>
+        </div>
         <Divider />
 
-        <div style={{ paddingTop: "30px" }}>
+        <div>
           {orderDisplay}
         </div>
       </div>
