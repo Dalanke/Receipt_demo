@@ -22,10 +22,10 @@ const orders = [
         img: 'https://m.media-amazon.com/images/I/81BPouGvNIL._SS110_.jpg'
       },
       {
-        name: 'Mandarin Oranges, 3 lb Bag',
-        price: 5.00,
+        name: 'Cage-Free, Large, Brown Eggs, 1 Dozen',
+        price: 2.99,
         number: 1.0,
-        img: 'https://m.media-amazon.com/images/I/81BPouGvNIL._SS110_.jpg'
+        img: 'https://m.media-amazon.com/images/I/81y-CAH1wUL._SS110_.jpg'
       },
     ]
   },
@@ -50,6 +50,109 @@ const orders = [
         price: 4.20,
         number: 1.0,
         img: 'https://m.media-amazon.com/images/I/819P-RBj+CL._SS110_.jpg'
+      },
+    ]
+  },
+  {
+    date: new Date('July 19, 2020 9:21'),
+    // the price is unit price 
+    items: [
+      {
+        name: 'Barilla Pasta, Thin Spaghetti, 16 oz',
+        price: 2.56,
+        number: 1.0,
+        img: 'https://m.media-amazon.com/images/I/71IDCT4ZHDL._SS110_.jpg'
+      },
+      {
+        name: 'SeaPak Jumbo Butterfly Shrimp with Oven Crispy Breading, Frozen 9 ounces',
+        price: 6.56,
+        number: 3.0,
+        img: 'https://m.media-amazon.com/images/I/71mjzUmNCgL._SS110_.jpg'
+      },
+      
+    ]
+  },
+  {
+    date: new Date('March 25, 2020 5:05'),
+    // the price is unit price 
+    items: [
+      {
+        name: 'Pepperidge Farm Butter Chessmen Cookies, 7.25 Ounce Package',
+        price: 3.27,
+        number: 1.0,
+        img: 'https://m.media-amazon.com/images/I/81w-TvUZ3QL._SS110_.jpg'
+      },
+      {
+        name: 'Wonderful Halos Mandarins, 3lb Bag',
+        price: 5.00,
+        number: 1.0,
+        img: 'https://m.media-amazon.com/images/I/81wIGirq-wL._SS110_.jpg'
+      },
+      {
+        name: 'Tyson Fully Cooked Chicken Nuggets, 32 oz. (Frozen)',
+        price: 4.97,
+        number: 1.0,
+        img: 'https://m.media-amazon.com/images/I/81TRUZNB07L._SS110_.jpg'
+      },
+      {
+        name: 'Aqua Star, Raw, Peeled, Deveined, Tail-off Shrimp, 41-50 Count , 2 lb (Frozen)',
+        price: 16.99,
+        number: 1.0,
+        img: 'https://m.media-amazon.com/images/I/71UYspAxesL._SS110_.jpg'
+      },
+    ]
+  },
+  {
+    date: new Date('Dec 16, 2019 8:56'),
+    // the price is unit price 
+    items: [
+      {
+        name: 'Coca-Cola, Coke Soda, 12 oz (pack of 12)',
+        price: 5.46,
+        number: 1.0,
+        img: 'https://m.media-amazon.com/images/I/813UygtWF-L._SS110_.jpg'
+      },
+      {
+        name: 'Organic Kiwifruit, One Medium',
+        price: 1.15,
+        number: 4.0,
+        img: 'https://m.media-amazon.com/images/I/61w8nLio7cL._SS110_.jpg'
+      },
+    ]
+  },
+  {
+    date: new Date('Sep 11, 2019 6:00'),
+    // the price is unit price 
+    items: [
+      {
+        name: 'Ball Park, Angus Beef Franks Bun Size, 14 oz',
+        price: 3.78,
+        number: 1.0,
+        img: 'https://m.media-amazon.com/images/I/81QRi2myqNL._SS110_.jpg'
+      },
+      {
+        name: 'Butterball, All Natural Fully Cooked Breakfast Sausage Patties, 0.5 lb',
+        price: 3.15,
+        number: 2.0,
+        img: 'https://m.media-amazon.com/images/I/71gL+5UjZRL._SS110_.jpg'
+      },
+      {
+        name: 'SeaPak Jumbo Butterfly Shrimp with Oven Crispy Breading, Frozen 9 ounces',
+        price: 6.56,
+        number: 3.0,
+        img: 'https://m.media-amazon.com/images/I/71mjzUmNCgL._SS110_.jpg'
+      },
+    ]
+  },
+  {
+    date: new Date('Nov 11, 2018 22:00'),
+    // the price is unit price 
+    items: [
+      {
+        name: 'Coca-Cola, Coke Soda, 12 oz (pack of 12)',
+        price: 5.46,
+        number: 1.0,
+        img: 'https://m.media-amazon.com/images/I/813UygtWF-L._SS110_.jpg'
       },
     ]
   },

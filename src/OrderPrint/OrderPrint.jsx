@@ -15,7 +15,7 @@ export default function OrderDetail() {
   const backButtonClick = () => {
     history.goBack();
   }
-  
+
   // for each item, display img, name, price
   const itemDetail = info.items.map((item, index) => {
     return (
@@ -30,7 +30,7 @@ export default function OrderDetail() {
 
   return (
     <div>
-      <div style={{display:"inline-flex"}}>
+      <div style={{ display: "inline-flex" }}>
         <div>
           <IconButton onClick={backButtonClick}>
             <ArrowBackIosIcon />
@@ -38,6 +38,11 @@ export default function OrderDetail() {
         </div>
       </div>
       <List>
+        <ListItem key={-1}>
+          <ListItemText primary="Item" />
+          <ListItemText primary="Quantity" />
+          <ListItemText primary="Unit Price" />
+        </ListItem>
         {itemDetail}
       </List>
     </div>
