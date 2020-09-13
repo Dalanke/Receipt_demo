@@ -5,7 +5,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 export default function SearchBar() {
   return (
-    <div style={{position: "fixed", top:"10px"}}>
+    <div style={{top:"10px"}}>
       <div className="title">Your Order History</div>
       <TextField
         id="outlined-search"
