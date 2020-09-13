@@ -1,6 +1,10 @@
 const orders = [
   {
     date: new Date('August 16, 2020 9:34'),
+    payment: {
+      type: "Credit card ending in xxxx",
+      amount: "n/a"
+    },
     // the price is unit price 
     items: [
       {
@@ -31,6 +35,10 @@ const orders = [
   },
   {
     date: new Date('July 30, 2020 11:39:00'),
+    payment: {
+      type: "Membership reward",
+      amount: "147 points"
+    },
     // the price is unit price 
     items: [
       {
@@ -55,6 +63,10 @@ const orders = [
   },
   {
     date: new Date('July 19, 2020 9:21'),
+    payment: {
+      type: "Credit card ending in xxxx",
+      amount: "n/a"
+    },
     // the price is unit price 
     items: [
       {
@@ -74,6 +86,10 @@ const orders = [
   },
   {
     date: new Date('March 25, 2020 5:05'),
+    payment: {
+      type: "Credit card ending in xxxx",
+      amount: "n/a"
+    },
     // the price is unit price 
     items: [
       {
@@ -104,6 +120,10 @@ const orders = [
   },
   {
     date: new Date('Dec 16, 2019 8:56'),
+    payment: {
+      type: "Credit card ending in xxxx",
+      amount: "n/a"
+    },
     // the price is unit price 
     items: [
       {
@@ -122,6 +142,10 @@ const orders = [
   },
   {
     date: new Date('Sep 11, 2019 6:00'),
+    payment: {
+      type: "Credit card ending in xxxx",
+      amount: "n/a"
+    },
     // the price is unit price 
     items: [
       {
@@ -146,6 +170,10 @@ const orders = [
   },
   {
     date: new Date('Nov 11, 2018 22:00'),
+    payment: {
+      type: "Credit card ending in xxxx",
+      amount: "n/a"
+    },
     // the price is unit price 
     items: [
       {
