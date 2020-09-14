@@ -36,12 +36,22 @@ export default function OrderDetail() {
   const printpart = useRef(null);
 
   const onPrintClick = () => {
-    const old = window.document.body.innerHTML
-    window.document.body.innerHTML = ''
-    window.document.body.appendChild(printpart.current)
-    window.print() 
-    window.document.body.innerHTML = old
-    window.location.reload() 
+    const old = window.document.body.innerHTML;
+    window.document.body.innerHTML = '';
+    window.document.body.appendChild(printpart.current);
+    console.log(navigator.userAgent)
+    // dectect safari
+    if (navigator.userAgent.indexOf("Safari") !== -1) {
+      window.print();
+      setTimeout(() => {
+        window.document.body.innerHTML = old;
+        window.location.reload();
+      }, 5000);
+    } else {
+      window.print();
+      window.document.body.innerHTML = old;
+      window.location.reload();
+    }
   }
 
   return (
@@ -95,10 +105,10 @@ export default function OrderDetail() {
           <div>{info.payment.amount === "n/a" ? `$${(subtotal * 1.095).toFixed(2)}` : info.payment.amount} </div>
         </div>
       </div>
-      <div style={{padding:"20px 0"}}>
+      <div style={{ padding: "20px 0" }}>
         <button onClick={onPrintClick}>Print</button>
       </div>
-      
+
     </div>
   );
 }

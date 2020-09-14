@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import SearchBar from './SearchBar.jsx';
 import OrderCard from './OrderCard.jsx';
-import { getAllOrders, getOrdersByDateFilter } from './data.js';
+import { getAllOrders, getOrdersByDateFilter, getOrdersByItemSearch } from './data.js';
 
 class OrderHistory extends React.Component {
   constructor() {
@@ -28,6 +28,14 @@ class OrderHistory extends React.Component {
     this.setState({ orders: getOrdersByDateFilter(event.target.value) });
   }
 
+  onSearchEnter = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.setState({ orders: getOrdersByItemSearch(e.target.value)});
+      this.setState({ dateFilter: "Item Search"});
+    }
+  }
+
   render() {
     let orderDisplay;
     if (this.state.orders.length === 0) {
@@ -38,7 +46,7 @@ class OrderHistory extends React.Component {
 
     return (
       <div>
-        <SearchBar />
+        <SearchBar onKeyDown={this.onSearchEnter}/>
         <div style={{ margin: "auto", marginTop: "100px", width: "300px" }}>
           <Accordion>
             <AccordionSummary
@@ -65,6 +73,7 @@ class OrderHistory extends React.Component {
                     <MenuItem value={new Date().getFullYear()}>{new Date().getFullYear()}</MenuItem>
                     <MenuItem value={new Date().getFullYear() - 1}>{new Date().getFullYear() - 1}</MenuItem>
                     <MenuItem value="All">All</MenuItem>
+                    <MenuItem value="Item Search" disabled>Item Search</MenuItem>
                   </Select>
                 </FormControl>
               </div>

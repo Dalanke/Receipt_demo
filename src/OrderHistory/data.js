@@ -215,9 +215,9 @@ function getOrdersByDateFilter(filter) {
   }
 }
 
-function getOrdersByItemSearch(item) {
+function getOrdersByItemSearch(itemName) {
   return orders.filter((value) => {
-    return value.items.find((item) => item.name.includes(item)) !== null ? true : false;
+    return value.items.find((item) => item.name.toLowerCase().includes(itemName.toLowerCase())) !== undefined ? true : false;
   });
 }
 
